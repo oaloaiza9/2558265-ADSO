@@ -11,8 +11,22 @@ public class Perro{
 	float energia;
 	String color;
 	String estado;
+	String password;
+	String temporal;
 
 	// Metodos
+	public Perro(){
+		this.id = 0;
+		this.nombre = "";
+		this.raza = "";
+		this.edad = 0;
+		this.tamanio = 0;
+		this.peso = 0;
+		this.energia = 0;
+		this.color = "";
+		this.estado = "vivo";
+	}
+
 	public Perro(int id, String nombre, String raza, int edad, float tamanio, float peso, String color, String estado, float energia){
 		this.id = id;
 		this.nombre = nombre;
@@ -26,7 +40,11 @@ public class Perro{
 	}
 
 	public void ladrar(){
-		System.out.println(" Gau! ");
+		System.out.println(" Güaw! ");
+	}
+
+	public void ladrar(String sonido){
+		System.out.println(sonido);
 	}
 
 	public void comer(float gramos){
@@ -58,6 +76,10 @@ public class Perro{
 		System.out.println("== color: "+this.color);
 		System.out.println("== estado: "+this.estado);
 		System.out.println("====================");
+	}
+
+	public String toString(){
+		return "Hola soy "+this.nombre;
 	}
 
 }
