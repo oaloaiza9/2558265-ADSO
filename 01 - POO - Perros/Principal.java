@@ -9,9 +9,9 @@ public class Principal{
 		p_01.dormir(300);
 		p_01.imprimirDatosPerro();
 		p_01.ladrar("Hola Mundo!");*/
-		
+
 		Perro arreglo [] = new Perro [10];
-		
+
 		arreglo[0] = new Perro(1, "Sam", "Labrador", 1, 30, 3000, "Blanco", "Vivo", 100);
 		arreglo[0].nombre = "Fabio";
 
