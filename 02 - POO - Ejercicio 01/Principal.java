@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Principal{
+	
 	public static void main(String[] args) {
 		
 		Scanner entrada_numero = new Scanner(System.in);
@@ -9,7 +10,7 @@ public class Principal{
 		Persona arreglo [] = new Persona[99];
 		int posicion = 0;
 		int opcion = 0;
-
+		
 		do{
 			System.out.println("\n");
 			System.out.println("||----------------------------------------||");
@@ -45,14 +46,26 @@ public class Principal{
 				System.out.print(" => Ingrese Email: ");
 				String email = entrada_texto.nextLine();
 
-				// Crear un objeto Persona
-				Persona temporal = new Persona(documento, nombres, apellidos, direccion, telefono, email);
+				boolean valido = true;
+				for (int i=0; i<posicion; i++) {
+					if(arreglo[i].getDocumento() == documento){
+						valido = false;
+						break;
+					}
+				}
 
-				// Guardar el objeto en el Arreglo
-				arreglo[posicion] = temporal;
+				if(valido){
+					// Crear un objeto Persona
+					Persona temporal = new Persona(documento, nombres, apellidos, direccion, telefono, email);
+					// Guardar el objeto en el Arreglo
+					arreglo[posicion] = temporal;
+					// aumentar el contador
+					posicion++;
+					System.out.println(" == REGISTRADO CON EXITO ==");
+				}else{
+					System.out.println(" == DOCUMENTO REPETIDO, DEBE INTENTAR DE NUEVO EL PROCESO ==");
+				}
 
-				// aumentar el contador
-				posicion++;
 			}else if( opcion==2 ){
 
 				System.out.println(" => LISTA DE PERSONAS: ");
@@ -65,7 +78,18 @@ public class Principal{
 				}
 
 			}else if( opcion==3 ){
-				
+
+				for (int i=0; i<posicion; i++) {
+					for (int j=0; j<posicion-1; j++) {
+						if(arreglo[j].getDocumento() > arreglo[j+1].getDocumento() ){
+							Persona temp = arreglo[j];
+							arreglo[j] = arreglo[j+1];
+							arreglo[j+1] = temp;
+						}
+					}
+				}
+				System.out.println(" == ORDENADO CON EXITO ==");
+
 			}else if( opcion==4 ){
 				System.out.println(" == Saliendo ==");
 			}else{
@@ -75,4 +99,5 @@ public class Principal{
 		}while( opcion!=4 );
 
 	}
+
 }

@@ -1,13 +1,15 @@
 
 public class Persona{
 
-	int documento;
-	String nombres;
-	String apellidos;
-	String direccion;
-	String telefono;
-	String email;
+	// Atributos
+	private int documento;
+	private String nombres;
+	private String apellidos;
+	private String direccion;
+	private String telefono;
+	private String email;
 
+	// Metodos
 	public Persona(int documento, String nombres, String apellidos, String direccion, String telefono, String email){
 		this.documento = documento;
 		this.nombres = nombres;
