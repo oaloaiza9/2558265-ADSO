@@ -88,50 +88,16 @@ public class Triki{
 	}
 
 	public boolean verificarCasilla(int pos){
-		if(pos==1){
-			return (this.tablero[0][0]=='-');
-		}else if(pos==2){
-			return (this.tablero[0][1]=='-');
-		}else if(pos==3){
-			return (this.tablero[0][2]=='-');
-		}else if(pos==4){
-			return (this.tablero[1][0]=='-');
-		}else if(pos==5){
-			return (this.tablero[1][1]=='-');
-		}else if(pos==6){
-			return (this.tablero[1][2]=='-');
-		}else if(pos==7){
-			return (this.tablero[2][0]=='-');
-		}else if(pos==8){
-			return (this.tablero[2][1]=='-');
-		}else if(pos==9){
-			return (this.tablero[2][2]=='-');
-		}else{
-			return false;
-		}
+		int fila = (int) (pos-1)/3;
+		int columna = (int) (pos-1)%3;
+		return (pos>=1 && pos<=9 && this.tablero[fila][columna]=='-');
 	}
 
 	public void marcarCasilla(int pos){
 		char ficha = (this.turno==1)? 'X' : 'O';
-		if(pos==1){
-			this.tablero[0][0] = ficha;
-		}else if(pos==2){
-			this.tablero[0][1] = ficha;
-		}else if(pos==3){
-			this.tablero[0][2] = ficha;
-		}else if(pos==4){
-			this.tablero[1][0] = ficha;
-		}else if(pos==5){
-			this.tablero[1][1] = ficha;
-		}else if(pos==6){
-			this.tablero[1][2] = ficha;
-		}else if(pos==7){
-			this.tablero[2][0] = ficha;
-		}else if(pos==8){
-			this.tablero[2][1] = ficha;
-		}else if(pos==9){
-			this.tablero[2][2] = ficha;
-		}
+		int fila = (int) (pos-1)/3;
+		int columna = (int) (pos-1)%3;
+		this.tablero[fila][columna] = ficha;
 	}
 
 	public boolean validarCasillasVacias(){
