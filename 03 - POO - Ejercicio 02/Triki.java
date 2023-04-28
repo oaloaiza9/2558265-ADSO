@@ -74,7 +74,7 @@ public class Triki{
 					System.out.println("| ------ GANO el Jugador "+((this.turno==1)? usuario_1 : usuario_2 )+" ---- \n\n");
 					break;
 				}else{
-					this.turno = (this.turno==1)? 2 : 1;
+					this.turno = (this.turno%2)+1;
 				}
 			}else{
 				System.out.println("Posicion invalida.");
