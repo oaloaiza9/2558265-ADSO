@@ -1,0 +1,17 @@
+Realizar una aplicación en JAVA para administrar los procesos realizados 
+por una federación de futbol, donde se presentan las siguientes consideraciones:
+
+	- Debe existir un menú principal para definir las funcionalidades 
+	  principales como:
+	  -> Crear Jugador de Futbol
+	  -> Crear Equipo de Futbol
+	  -> Cambiar Jugador de Equipo
+	  -> Ver Listado de Equipos de Futbol
+	  -> Ver detalle de Equipos de Futbol
+	  -> Registrar Partido
+	  -> Ver detalle de Partidos de Futbol
+	  -> Ver listado de Partidos de Futbol 
+	     realizados en un Estadio
+
+	Las funcionales anteriores deben realizarse usando POO. El contenido de cada una 
+	de las clases debe ser definida por el aprendiz.
