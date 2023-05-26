@@ -15,7 +15,7 @@ public class Principal{
 		int indiceClientes = 0;
 		int indiceVendedores = 0;
 		int indiceProductos = 0;
-
+		
 		do{
 			System.out.println("++------------------------------------++");
 			System.out.println("++----   SISTEMA DE FACTURACION   ----++");
