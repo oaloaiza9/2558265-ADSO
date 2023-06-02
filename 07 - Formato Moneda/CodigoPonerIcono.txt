@@ -1,0 +1,8 @@
+
+/* 
+	Este codigo es para trabajarlo cuando se usa Herencia.
+	Sin herencia seria:  JFrame.setIconImage(.....);
+*/
+
+Image icono = getToolkit().createImage( ClassLoader.getSystemResource("imagenes/icono_moneda.png") );
+setIconImage(icono);
