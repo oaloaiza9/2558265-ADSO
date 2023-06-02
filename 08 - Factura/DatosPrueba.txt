@@ -19,3 +19,23 @@ Productos existentes:
 	1012
 	1013
 	1014
+
+
+
+KeyListener eventoKey = new KeyListener(){
+    public void keyPressed(KeyEvent e){
+    }
+
+    public void keyReleased(KeyEvent e){
+        // Aca viene el codigo del
+        // Algoritmo que quieran que se realice al 
+        // Presional una tecla
+    }
+
+    public void keyTyped(KeyEvent e){
+    }
+};
+
+
+input.addKeyListener( eventoKey );
+
