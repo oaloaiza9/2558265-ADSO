@@ -8,6 +8,8 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         initComponentAltern();
+        
+        btn_listarActionPerformed(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -32,21 +34,35 @@ public class Menu extends javax.swing.JFrame {
         btn_listar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btn_listar.setForeground(new java.awt.Color(255, 255, 255));
         btn_listar.setText("LISTAR");
+        btn_listar.setFocusable(false);
+        btn_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_listarActionPerformed(evt);
+            }
+        });
 
         btn_crear.setBackground(new java.awt.Color(0, 51, 255));
         btn_crear.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btn_crear.setForeground(new java.awt.Color(255, 255, 255));
         btn_crear.setText("CREAR");
+        btn_crear.setFocusable(false);
+        btn_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_crearActionPerformed(evt);
+            }
+        });
 
         btn_editar.setBackground(new java.awt.Color(0, 51, 255));
         btn_editar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btn_editar.setForeground(new java.awt.Color(255, 255, 255));
         btn_editar.setText("EDITAR");
+        btn_editar.setFocusable(false);
 
         btn_eliminar.setBackground(new java.awt.Color(0, 51, 255));
         btn_eliminar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         btn_eliminar.setText("ELIMINAR");
+        btn_eliminar.setFocusable(false);
 
         btn_salir.setBackground(new java.awt.Color(153, 0, 0));
         btn_salir.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -110,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
         contentPrincipal.setLayout(contentPrincipalLayout);
         contentPrincipalLayout.setHorizontalGroup(
             contentPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGap(0, 605, Short.MAX_VALUE)
         );
         contentPrincipalLayout.setVerticalGroup(
             contentPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,6 +155,28 @@ public class Menu extends javax.swing.JFrame {
         Login ventana = new Login();
         dispose(); 
     }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listarActionPerformed
+        contentPrincipal.removeAll();
+        
+        PanelListar contentTemporal = new PanelListar();
+        contentTemporal.setSize(contentPrincipal.getSize() );
+        contentPrincipal.add( contentTemporal );
+        
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_btn_listarActionPerformed
+
+    private void btn_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearActionPerformed
+        contentPrincipal.removeAll();
+        
+        PanelCrear temporal = new PanelCrear();
+        temporal.setSize( contentPrincipal.getSize() );
+        contentPrincipal.add( temporal );
+        
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_btn_crearActionPerformed
 
     public void initComponentAltern(){
         setVisible(true);
