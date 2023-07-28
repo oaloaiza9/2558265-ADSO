@@ -1,11 +1,16 @@
 package principal;
 
+import clases.DataBase;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Menu extends javax.swing.JFrame {
-
-    public Menu() {
+    
+    DataBase basedatos;
+    
+    public Menu(DataBase basedatos) {
+        this.basedatos = basedatos;
+        
         initComponents();
         initComponentAltern();
         
@@ -159,7 +164,7 @@ public class Menu extends javax.swing.JFrame {
     private void btn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listarActionPerformed
         contentPrincipal.removeAll();
         
-        PanelListar contentTemporal = new PanelListar();
+        PanelListar contentTemporal = new PanelListar( basedatos );
         contentTemporal.setSize(contentPrincipal.getSize() );
         contentPrincipal.add( contentTemporal );
         
@@ -170,7 +175,7 @@ public class Menu extends javax.swing.JFrame {
     private void btn_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearActionPerformed
         contentPrincipal.removeAll();
         
-        PanelCrear temporal = new PanelCrear();
+        PanelCrear temporal = new PanelCrear(basedatos);
         temporal.setSize( contentPrincipal.getSize() );
         contentPrincipal.add( temporal );
         

@@ -1,8 +1,13 @@
 package principal;
 
-public class PanelCrear extends javax.swing.JPanel {
+import clases.DataBase;
 
-    public PanelCrear() {
+public class PanelCrear extends javax.swing.JPanel {
+    DataBase basedatos;
+    
+    public PanelCrear(DataBase basedatos) {
+        this.basedatos = basedatos;
+        
         initComponents();
     }
 
@@ -47,6 +52,11 @@ public class PanelCrear extends javax.swing.JPanel {
         btn_registrar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn_registrar.setForeground(new java.awt.Color(255, 255, 255));
         btn_registrar.setText("REGISTRAR");
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,6 +124,28 @@ public class PanelCrear extends javax.swing.JPanel {
                 .addContainerGap(56, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        String cedula = campo_cedula.getText();
+        String nombres = campo_nombres.getText();
+        String apellidos = campo_apellidos.getText();
+        String telefono = campo_telefono.getText();
+        String direccion = "";
+        String email = campo_email.getText();
+        
+        boolean respuesta = this.basedatos.insertarPersona(cedula, nombres, apellidos, telefono, direccion, email);
+        if (respuesta) {
+            campo_cedula.setText("");
+            campo_nombres.setText("");
+            campo_apellidos.setText("");
+            campo_telefono.setText("");
+            campo_email.setText("");
+            
+            campo_cedula.requestFocus();
+        }
+        
+        
+    }//GEN-LAST:event_btn_registrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
