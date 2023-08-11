@@ -6,10 +6,12 @@ import javax.swing.ImageIcon;
 
 public class Menu extends javax.swing.JFrame {
     
+    Login login;
     DataBase basedatos;
     
-    public Menu(DataBase basedatos) {
-        this.basedatos = basedatos;
+    public Menu(Login login) {
+        this.login = login;
+        this.basedatos = login.basedatos;
         
         initComponents();
         initComponentAltern();
@@ -73,6 +75,7 @@ public class Menu extends javax.swing.JFrame {
         btn_salir.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btn_salir.setForeground(new java.awt.Color(255, 255, 255));
         btn_salir.setText("SALIR");
+        btn_salir.setFocusable(false);
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirActionPerformed(evt);
@@ -157,7 +160,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        Login ventana = new Login();
+        login.setVisible(true);
         dispose(); 
     }//GEN-LAST:event_btn_salirActionPerformed
 
@@ -178,7 +181,8 @@ public class Menu extends javax.swing.JFrame {
         PanelCrear temporal = new PanelCrear(basedatos);
         temporal.setSize( contentPrincipal.getSize() );
         contentPrincipal.add( temporal );
-        
+        temporal.focusCampoCedula();
+                
         repaint();
         revalidate();
     }//GEN-LAST:event_btn_crearActionPerformed

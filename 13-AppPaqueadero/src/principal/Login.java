@@ -53,6 +53,7 @@ public class Login extends javax.swing.JFrame {
 
         campo_email.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         campo_email.setText("andres@mail.com.co");
+        campo_email.setMargin(new java.awt.Insets(2, 5, 2, 5));
         campo_email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 validateEmail(evt);
@@ -65,6 +66,7 @@ public class Login extends javax.swing.JFrame {
 
         campo_password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         campo_password.setText("12345");
+        campo_password.setMargin(new java.awt.Insets(2, 5, 2, 5));
         campo_password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 pruebaKey(evt);
@@ -102,8 +104,7 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(etq_email, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
-                                .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,8 +135,8 @@ public class Login extends javax.swing.JFrame {
         String password = campo_password.getText();
         
         if (email.equalsIgnoreCase("andres@mail.com.co") && password.equalsIgnoreCase("12345")) {   
-            Menu ventana = new Menu(basedatos);
-            dispose();            
+            Menu ventana = new Menu(this);
+            setVisible(false);
         }else{
             System.out.println("DATOS INVALIDOS");
         }
@@ -171,13 +172,9 @@ public class Login extends javax.swing.JFrame {
         }
         
         if (cont==1 && contPuntos==2) {
-            System.out.println("Correo valido.");
-            
             JTextField referencia = new JTextField();
             temporal.setBorder( referencia.getBorder() );
         }else{
-            System.out.println("Correo in-valido.");
-            
             Border borderColor = new LineBorder(Color.RED, 1, true);
             Border borderPadding = new EmptyBorder(2,5,2,5);
             Border borderRojo = new CompoundBorder(borderColor, borderPadding);

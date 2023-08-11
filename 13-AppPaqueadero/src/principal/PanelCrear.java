@@ -7,8 +7,8 @@ public class PanelCrear extends javax.swing.JPanel {
     
     public PanelCrear(DataBase basedatos) {
         this.basedatos = basedatos;
-        
         initComponents();
+        initAlternComponents();
     }
 
     @SuppressWarnings("unchecked")
@@ -36,17 +36,27 @@ public class PanelCrear extends javax.swing.JPanel {
         etq_cedula.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         etq_cedula.setText("CEDULA:");
 
+        campo_cedula.setMargin(new java.awt.Insets(2, 5, 2, 5));
+
         etq_nombres.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         etq_nombres.setText("NOMBRES:");
+
+        campo_nombres.setMargin(new java.awt.Insets(2, 5, 2, 5));
 
         etq_apellidos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         etq_apellidos.setText("APELLIDOS:");
 
+        campo_apellidos.setMargin(new java.awt.Insets(2, 5, 2, 5));
+
         etq_telefono.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         etq_telefono.setText("TELEFONO:");
 
+        campo_telefono.setMargin(new java.awt.Insets(2, 5, 2, 5));
+
         etq_email.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         etq_email.setText("EMAIL:");
+
+        campo_email.setMargin(new java.awt.Insets(2, 5, 2, 5));
 
         btn_registrar.setBackground(new java.awt.Color(0, 0, 204));
         btn_registrar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -125,6 +135,13 @@ public class PanelCrear extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void initAlternComponents(){
+    }
+    
+    public void focusCampoCedula(){
+        campo_cedula.requestFocus();
+    }
+    
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
         String cedula = campo_cedula.getText();
         String nombres = campo_nombres.getText();

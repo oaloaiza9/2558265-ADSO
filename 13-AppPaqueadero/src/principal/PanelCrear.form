@@ -120,6 +120,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_cedula">
+      <Properties>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[2, 5, 2, 5]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etq_nombres">
       <Properties>
@@ -130,6 +135,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_nombres">
+      <Properties>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[2, 5, 2, 5]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etq_apellidos">
       <Properties>
@@ -140,6 +150,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_apellidos">
+      <Properties>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[2, 5, 2, 5]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etq_telefono">
       <Properties>
@@ -150,6 +165,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_telefono">
+      <Properties>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[2, 5, 2, 5]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="etq_email">
       <Properties>
@@ -160,6 +180,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campo_email">
+      <Properties>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[2, 5, 2, 5]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_registrar">
       <Properties>
