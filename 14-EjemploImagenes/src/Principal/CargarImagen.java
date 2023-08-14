@@ -144,7 +144,7 @@ public class CargarImagen extends javax.swing.JFrame {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Imagen", "jpg", "jpeg", "png", "gif");
         fileChooser.setFileFilter(filter);
-
+        
         int seleccion = fileChooser.showOpenDialog(panelPreview);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             String rutaImagen = fileChooser.getSelectedFile().getAbsolutePath();
