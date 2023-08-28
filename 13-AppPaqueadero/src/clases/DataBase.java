@@ -10,10 +10,10 @@ public class DataBase {
     Statement manipularDB;
     
     public DataBase(){
-        String hostname = "localhost";
+        String hostname = "3.21.228.80";
         String puerto = "3306";
         String user_name = "root";
-        String password = "";
+        String password = "adso12345!";
         String database_name = "app_java";
         
         String url = "jdbc:mysql://"+hostname+":"+puerto+"/"+database_name;
