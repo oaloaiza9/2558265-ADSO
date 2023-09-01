@@ -1,0 +1,13 @@
+
+.img-pokemon{
+	height: 200px;
+}
+
+.contentButtons{
+	max-height: 280px;
+	overflow-y: auto;
+}
+
+.rounded-1rem{
+	border-radius: 1.25rem !important;
+}
