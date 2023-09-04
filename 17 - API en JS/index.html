@@ -8,15 +8,16 @@
 		<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="dist/css/style.css">
 		<script src="dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+		<script src="dist/js/my_script.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class="container-fluid px-0 px-lg-5">
 			<div class="m-3 p-3 border border-4 border-primary rounded-1rem">
-				<h1 class="m-0 text-center">POKEMON</h1>
+				<h1 id="nombrePokemon" class="m-0 text-center">POKEMON</h1>
 				<div class="mt-3 text-center">
-					<img class="img-pokemon" src="dist/img/pokeball.png" alt="Error">
+					<img id="imgPokemon" class="img-pokemon" src="dist/img/pokeball.png" alt="Error">
 				</div>
-				<div class="m-0 mb-2 mt-3 p-0 row justify-content-center contentButtons">
+				<div id="contentButtons" class="m-0 mb-2 mt-3 p-0 row justify-content-center contentButtons">
 					<button class="col-5 col-lg-2 m-1 btn btn-outline-primary">-</button>
 					<button class="col-5 col-lg-2 m-1 btn btn-outline-primary">-</button>
 					<button class="col-5 col-lg-2 m-1 btn btn-outline-primary">-</button>
@@ -43,10 +44,9 @@
 				</div>
 
 				<div class="m-0 p-0 row justify-content-center">
-					<button class="col col-lg-2 mt-2 mx-1 btn btn-success"><b>ATRAS</b></button>
-					<button class="col col-lg-2 mt-2 mx-1 btn btn-success"><b>SIGUIENTE</b></button>
+					<button id="btnBack" class="col col-lg-2 mt-2 mx-1 btn btn-success"><b>ATRAS</b></button>
+					<button id="btnNext" class="col col-lg-2 mt-2 mx-1 btn btn-success"><b>SIGUIENTE</b></button>
 				</div>
-
 			</div>
 		</div>
 	</body>
