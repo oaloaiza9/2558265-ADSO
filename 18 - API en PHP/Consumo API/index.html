@@ -2,9 +2,12 @@
 <html>
 	<head>
 		<title>CONSUMO API - PHP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="dist/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="dist/css/estilos.css">
+		
 
 		<script src="dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
@@ -12,24 +15,22 @@
 	</head>
 	<body>
 		
-		<div class="col-12 m-0 p-0 py-3 row justify-content-center vh-100">
-			<div class="col-8 m-0 p-2 pstn-rltv">
+		<div class="col-12 content-fluid m-0 p-0 py-3 row justify-content-center vh-100">
+			<div class="col-12 col-lg-8 m-0 p-2 pstn-rltv">
 				
 				<div class="col-12 m-0 p-0">
 					<div class="col-12 m-0 p-0 row justify-content-end">
-						<button class="col-3 btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalCrearUsuario"><b>CREAR USUARIO</b></button>
+						<button class="col-12 col-lg-auto btn btn-primary" title="Crear Nueva Persona" data-bs-toggle="modal" data-bs-target="#modalCrearUsuario"><b> <i class="fa fa-plus" aria-hidden="true"></i> CREAR PERSONA</b></button>
 					</div>
-					<div class="col-12 m-0 mt-2 p-0">
+					<div class="col-12 m-0 mt-2 p-0" style="overflow-x:auto;">
 						<table class="table table-bordered">
 							<thead>
 								<tr class="bg-primary text-light">
 									<th class="text-center">CEDULA</th>
 									<th class="text-center">NOMBRES</th>
 									<th class="text-center">APELLIDOS</th>
-									<th class="text-center">TELEFONO</th>
-									<th class="text-center">DIRECCION</th>
 									<th class="text-center">E-MAIL</th>
-									<th class="text-center"></th>
+									<th class="text-center" colspan="2">OPCIONES</th>
 								</tr>
 							</thead>
 							<tbody id="contentClients">
@@ -39,7 +40,7 @@
 					</div>
 				</div>
 				
-				<div id="waitContent" class="waitContent" style="display:none;">
+				<div id="waitContent" class="waitContent" style="display:block;">
 					<div class="row h-100 justify-content-center">
 						<div class="col-12 m-0 p-0 text-center">
 							<div class="spinner-border m-0 text-primary" role="status">
@@ -63,7 +64,7 @@
 						</div>
 						<div class="modal-body">
 							<div class="col-12 m-0 p-0 row justify-content-center">
-								<div class="col-8">
+								<div class="col-12 col-lg-8">
 									<label for="campo_cedula" class="form-label m-0"><b>CEDULA:</b></label>
 									<input id="campo_cedula" type="number" name="cedula" class="form-control" required>
 
@@ -85,12 +86,22 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<div class="col-12 m-0 p-0 row justify-content-end">
-								<button type="button" class="col-3 btn btn-secondary me-1" data-bs-dismiss="modal">CERRAR</button>
-								<button type="submit" class="col-3 btn btn-primary ms-1">INSERTAR</button>
+							<div class="col-12 m-0 p-0 row justify-content-center">
+								<button type="button" class="col col-lg-3 btn btn-secondary me-1" data-bs-dismiss="modal">CERRAR</button>
+								<button type="submit" class="col col-lg-3 btn btn-primary ms-1">INSERTAR</button>
 							</div>
 						</div>
 					</form>
+					<div id="waitContentCreate" class="waitContent" style="display:none;">
+						<div class="row h-100 justify-content-center">
+							<div class="col-12 m-0 p-0 text-center">
+								<div class="spinner-border m-0 text-primary" role="status">
+									<span class="visually-hidden font-3rem">Loading...</span>
+								</div>
+								<h3 class="m-0 p-0 text-primary">CREANDO PERSONA</h3>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -105,7 +116,7 @@
 						</div>
 						<div class="modal-body">
 							<div class="col-12 m-0 p-0 row justify-content-center">
-								<div class="col-8">
+								<div class="col-12 col-lg-8">
 									<label for="campo_editar_cedula" class="form-label m-0"><b>CEDULA:</b></label>
 									<input id="campo_editar_cedula" type="number" name="cedula" class="form-control" readonly>
 
@@ -127,12 +138,22 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<div class="col-12 m-0 p-0 row justify-content-end">
-								<button type="button" class="col-3 btn btn-secondary me-1" data-bs-dismiss="modal">CERRAR</button>
-								<button type="submit" class="col-3 btn btn-primary ms-1">GUARDAR</button>
+							<div class="col-12 m-0 p-0 row justify-content-center">
+								<button type="button" class="col col-lg-3 btn btn-secondary me-1" data-bs-dismiss="modal">CERRAR</button>
+								<button type="submit" class="col col-lg-3 btn btn-primary ms-1">GUARDAR</button>
 							</div>
 						</div>
 					</form>
+					<div id="waitContentEdit" class="waitContent" style="display:none;">
+						<div class="row h-100 justify-content-center">
+							<div class="col-12 m-0 p-0 text-center">
+								<div class="spinner-border m-0 text-primary" role="status">
+									<span class="visually-hidden font-3rem">Loading...</span>
+								</div>
+								<h3 class="m-0 p-0 text-primary">EDITANDO PERSONA</h3>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
