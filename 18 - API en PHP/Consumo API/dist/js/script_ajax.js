@@ -1,6 +1,7 @@
 let contentClients = null;
 let listaPersonas = null;
 let formInsertarUsuario = null;
+let formEditarUsuario = null;
 let modalCrearUsuario = null;
 let modalEditarUsuario = null;
 let waitContent = null;
@@ -10,6 +11,7 @@ let waitContentEdit = null;
 window.onload = function(){
 	contentClients = document.getElementById("contentClients");
 	formInsertarUsuario = document.getElementById("formInsertarUsuario");
+	formEditarUsuario = document.getElementById("formEditarUsuario");
 	waitContent = document.getElementById("waitContent");
 	waitContentCreate = document.getElementById("waitContentCreate");
 	waitContentEdit = document.getElementById("waitContentEdit");
@@ -17,6 +19,11 @@ window.onload = function(){
 	formInsertarUsuario.addEventListener("submit", function(event){
 		event.preventDefault();
 		crearPersona();
+	});
+
+	formEditarUsuario.addEventListener("submit", function(event){
+		event.preventDefault();
+		editarPersona();
 	});
 
 	modalCrearUsuario = new bootstrap.Modal(document.getElementById('modalCrearUsuario'), {
@@ -69,8 +76,77 @@ function abrirModalEditar( indice ){
 }
 
 function confirmarEliminacion( indice ){
-	console.log( "Eliminando: " );
-	console.log( listaPersonas[indice] );
+	Swal.fire({
+	  title: '<span class="text-danger">ELIMINAR</span>',
+	  html: `
+	  			<div class="col-12 m-0 p-0 row justify-content-center">
+	  				<div class="col-7 text-center m-0 p-0">
+	  					<i class="fa fa-trash fa-4x h1 text-danger" aria-hidden="true"></i>
+	  				</div>
+	  				<div class="col-12 m-0 p-0">
+	  					¿Esta seguro de querer eliminar a la persona con los siguientes datos?
+	  					<br><br>
+	  					<strong>C.C:</strong> ${ listaPersonas[indice].cedula }<br>
+	  					<strong>Nombres:</strong> ${ listaPersonas[indice].nombres+" "+listaPersonas[indice].apellidos }<br>
+	  				</div>
+	  			</div>`,
+	  showCancelButton: true,
+	  cancelButtonText: 'CANCELAR',
+	  confirmButtonText: 'ELIMINAR',
+	  confirmButtonColor: '#A10100',
+	  allowOutsideClick: false,
+
+	}).then((result) => {
+	  if (result.isConfirmed) {
+	  	
+	  	let timerInterval
+		let alerta = Swal.fire({
+		  title: 'Eliminando Persona',
+		  html: '',
+		  timer: 5000,
+		  timerProgressBar: true,
+		  allowOutsideClick: false,
+		  didOpen: () => {
+		    Swal.showLoading()
+		    timerInterval = setInterval(() => {
+		    }, 100)
+		  }
+		})
+
+		let datos = new FormData();
+		datos.append("cedula", listaPersonas[indice].cedula);
+
+		let configuracion = 	{
+									method: "POST",
+									headers: {
+										"Accept": "application/json",
+									},
+									body: datos,
+								};
+
+		fetch("http://localhost/APIenPHP/Delete.php", configuracion)
+		.then( res => res.json() )
+		.then( data => {
+			console.log('Servidor eliminando: ');
+			console.log(data);
+
+			alerta.close();
+			getClients("http://localhost/APIenPHP/Obtener.php");
+
+			if (!data.status){
+				Swal.fire({
+				  title: 'ERROR',
+				  icon: 'error',
+				  html: 'Se presento un error al elimina.<br>Intenta de nuevo el Proceso.',
+				  confirmButtonText: 'ENTENDIDO',
+				  confirmButtonColor: '#00A100',
+				});
+			}
+		});
+
+	  }
+	});
+
 }
 
 function crearPersona(){
@@ -123,9 +199,49 @@ function crearPersona(){
 
 		waitContentCreate.style.display = "none";
 	});
+}
 
 
+function editarPersona(){
+	let datos = new FormData( formEditarUsuario );
 
+	let configuracion = 	{
+								method: "POST",
+								headers: {
+									"Accept": "application/json",
+								},
+								body: datos,
+							};
 
+	waitContentEdit.style.display = "block";
+	fetch("http://localhost/APIenPHP/Update.php", configuracion)
+	.then( res => res.json() )
+	.then( data => {
 
+		if (data.status){
+			formEditarUsuario.reset();
+			modalEditarUsuario.hide();
+			getClients("http://localhost/APIenPHP/Obtener.php");
+			
+			Swal.fire({
+			  title: 'EXITO',
+			  icon: 'success',
+			  html: 'Registro editado con exito.',
+			  confirmButtonText: 'ENTENDIDO'
+			});
+
+		}else{
+			
+			Swal.fire({
+			  title: 'ERROR',
+			  icon: 'error',
+			  html: 'Se presento un error al editar, reintente el proceso.',
+			  confirmButtonText: 'ENTENDIDO',
+			  confirmButtonColor: '#00A100',
+			});
+
+		}
+
+		waitContentEdit.style.display = "none";
+	});
 }
