@@ -1,15 +1,24 @@
 package principal;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Principal {
     public static void main(String[] args) {
         
+        ListaPersonas ventana = new ListaPersonas();
+        ventana.setVisible(true);
+        
+        
         ConsumoAPI ejemplo = new ConsumoAPI();
         
-        // GET sin datos
-        System.out.println("Consumo GET: " + ejemplo.consumoGET("http://localhost/APIenPHP/Obtener.php"));
+        
+        System.out.println("Pokeapi: " + ejemplo.consumoGET("https://pokeapi.co/api/v2/pokemon/charmander"));
+        System.out.println("Consumo SELECT ALL: " + ejemplo.consumoGET("http://localhost/APIenPHP/Obtener.php"));
         
         // GET con Datos
         Map<String, String> getData = new HashMap<>();

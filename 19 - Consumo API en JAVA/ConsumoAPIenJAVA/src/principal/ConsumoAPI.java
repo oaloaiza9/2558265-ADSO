@@ -1,12 +1,14 @@
 package principal;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ConsumoAPI {
@@ -16,7 +18,6 @@ public class ConsumoAPI {
     
     public String consumoGET(String endpoint){
         try {
-            
             // URL de la API
             URL url = new URL(endpoint);
             
@@ -47,7 +48,7 @@ public class ConsumoAPI {
             }
         } catch (Exception e) {
             System.out.println(" -- Catch -- ");
-            e.printStackTrace();
+            System.out.println( e.getMessage() );
             return null;
         }
     }
@@ -102,7 +103,6 @@ public class ConsumoAPI {
             return null;
         }
     }
-    
     
     public String consumoPOST(String endpoint){
         try {
