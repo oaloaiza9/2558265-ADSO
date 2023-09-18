@@ -1,5 +1,6 @@
 package principal;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -199,4 +200,32 @@ public class ConsumoAPI {
         }
     }
     
+    public Persona[] getListaPersonas(String endpoint){
+        // Realizamos el consumo
+        String respuestaApi = consumoGET(endpoint);
+        Persona listaPersonas [] = null;
+        
+        if (respuestaApi!=null) {
+            // Convertimos toda la respuesta de la API en Objeto Json
+            // De ese objeto se extrae el value del key "registros" y ese valor se convierte en Array Jsoon
+            JsonObject jsonRegistros = JsonParser.parseString(respuestaApi).getAsJsonObject();
+            JsonArray jsonArray = jsonRegistros.get("registros").getAsJsonArray();
+
+            // Se crea un arreglo de Tipo Persona del tamaño del arreglo construido anteriormente
+            listaPersonas = new Persona [jsonArray.size()];
+
+            // [opcional] Se crea una instancia Gson para converir un objeto Json en una clase Persona de forma automatica
+            Gson gson01 = new Gson();
+
+            // Se recorre el arreglo que llego de la API y se alimenta el arreglo de Personas
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
+                
+                Persona temporal = gson01.fromJson(jsonObject, Persona.class);
+                listaPersonas[i] = temporal;
+            }       
+        }
+        
+        return listaPersonas;
+    }
 }

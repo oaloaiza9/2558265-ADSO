@@ -37,7 +37,7 @@ public class CargarImagen extends javax.swing.JFrame {
         imagenLabel = new javax.swing.JLabel();
         btnUploadImage = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panelFormulario.setBackground(new java.awt.Color(255, 255, 255));
 

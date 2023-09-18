@@ -13,32 +13,14 @@ import javax.swing.table.DefaultTableModel;
 public class ListaPersonas extends javax.swing.JFrame {
     
     DefaultTableModel tableModel;
+    ConsumoAPI apiPHP;
     Persona listaPersonas [];
     
     public ListaPersonas() {
         
         // Consumo de la API en PHP
-        ConsumoAPI apiPHP = new ConsumoAPI();
-        String respuestaApi = apiPHP.consumoGET("http://localhost/APIenPHP/Obtener.php");
-        
-        // Convertimos toda la respuesta de la API en Objeto Json
-        // De ese objeto se extrae el value del key "registros" y ese valor se convierte en Array Jsoon
-        JsonObject jsonRegistros = JsonParser.parseString(respuestaApi).getAsJsonObject();
-        JsonArray jsonArray = jsonRegistros.get("registros").getAsJsonArray();
-        
-        // Se crea un arreglo de Tipo Persona del tamaño del arreglo construido anteriormente
-        listaPersonas = new Persona [jsonArray.size()];
-        
-        // [opcional] Se crea una instancia Gson para converir un objeto Json en una clase Persona de forma automatica
-        Gson gson01 = new Gson();
-        
-        // Se recorre el arreglo que llego de la API y se alimenta el arreglo de Personas
-        for (int i = 0; i < jsonArray.size(); i++) {
-            JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
-            
-            Persona temporal = gson01.fromJson(jsonObject, Persona.class);
-            listaPersonas[i] = temporal;
-        }
+        apiPHP = new ConsumoAPI();
+        listaPersonas = apiPHP.getListaPersonas("http://localhost/APIenPHP/Obtener.php");
         
         // Con el arreglo de Personas lleno se puede llenar el JTable como lo hacian anteriormente
         // En el Altern component
@@ -49,18 +31,20 @@ public class ListaPersonas extends javax.swing.JFrame {
     public void initAlternComponents(){
         tableModel =  (DefaultTableModel) this.tablaPersonas.getModel();
         tableModel.setNumRows(0);
-        for (int i=0; i<listaPersonas.length; i++) {
-            String cedula = listaPersonas[i].getCedula();
-            String nombres = listaPersonas[i].getNombres();
-            String apellidos = listaPersonas[i].getApellidos();
-            String telefono = listaPersonas[i].getTelefono();
-            String direccion = listaPersonas[i].getDireccion();
-            String email = listaPersonas[i].getEmail();
-            
-            Object[] temporal = new Object[]{ cedula, nombres+" "+apellidos, telefono, email};
-            tableModel.addRow(temporal);
-        }
         
+        if (listaPersonas!=null) {
+            for (int i=0; i<listaPersonas.length; i++) {
+                String cedula = listaPersonas[i].getCedula();
+                String nombres = listaPersonas[i].getNombres();
+                String apellidos = listaPersonas[i].getApellidos();
+                String telefono = listaPersonas[i].getTelefono();
+                String direccion = listaPersonas[i].getDireccion();
+                String email = listaPersonas[i].getEmail();
+
+                Object[] temporal = new Object[]{ cedula, nombres+" "+apellidos, telefono, email};
+                tableModel.addRow(temporal);
+            }
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -71,7 +55,7 @@ public class ListaPersonas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPersonas = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         titulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 51, 153));

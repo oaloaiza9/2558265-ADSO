@@ -13,10 +13,8 @@ public class Principal {
         ListaPersonas ventana = new ListaPersonas();
         ventana.setVisible(true);
         
-        
+        /*
         ConsumoAPI ejemplo = new ConsumoAPI();
-        
-        
         System.out.println("Pokeapi: " + ejemplo.consumoGET("https://pokeapi.co/api/v2/pokemon/charmander"));
         System.out.println("Consumo SELECT ALL: " + ejemplo.consumoGET("http://localhost/APIenPHP/Obtener.php"));
         
@@ -49,6 +47,6 @@ public class Principal {
         Map<String, String> deleteData = new HashMap<>();
         deleteData.put("cedula", "102200");
         System.out.println("Consumo DELETE: " + ejemplo.consumoPOST("http://localhost/APIenPHP/Delete.php", deleteData));
-        
+        */
     }    
 }
