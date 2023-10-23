@@ -1,0 +1,10 @@
+
+Para indicar cual es el archivo con el que se iniciara la API:
+	<start-class> paquete.nombreArchivo </start-class>
+
+Para agregar la dependencia de mysql-connector-java:
+	<dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.28</version>
+    </dependency>
