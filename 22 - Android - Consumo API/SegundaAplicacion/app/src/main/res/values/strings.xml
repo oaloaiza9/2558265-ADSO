@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Second Application</string>
+    <string name="title">Title</string>
+    <string name="id">Id:</string>
+    <string name="name">Name:</string>
+    <string name="email">Email:</string>
+    <string name="register">REGISTER</string>
+</resources>

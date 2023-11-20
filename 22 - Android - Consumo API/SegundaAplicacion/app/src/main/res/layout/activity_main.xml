@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="25dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONSUMO API"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prueba GET - POST"
+        android:textSize="25sp"
+        android:gravity="start"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        >
+
+        <Button
+            android:id="@+id/btn_get_json"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GET"
+            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:onClick="consumoGetJson"
+            android:layout_marginLeft="6dp"
+            android:backgroundTint="#0000A1"
+            />
+
+        <Button
+            android:id="@+id/btn_post_json"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POST"
+            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:onClick="consumoPostJson"
+            android:layout_marginLeft="6dp"
+            android:backgroundTint="#0000A1"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prueba Imagen"
+        android:textSize="25sp"
+        android:gravity="start"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        >
+
+        <Button
+            android:id="@+id/btn_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CARGAR"
+            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:onClick="consumoImagen"
+            android:layout_marginLeft="6dp"
+            android:backgroundTint="#0000A1"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Respuesta:"
+        android:textSize="25sp"
+        android:gravity="start"
+        android:textStyle="normal"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        />
+
+    <ImageView
+        android:id="@+id/imgInternet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
