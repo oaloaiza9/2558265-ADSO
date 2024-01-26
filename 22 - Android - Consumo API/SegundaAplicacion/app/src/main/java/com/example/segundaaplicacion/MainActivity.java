@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Iniciando consumo");
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://172.20.10.2:80/APIenPHP/Obtener.php";
+        String url = "http://192.168.20.31/APIenPHP/Obtener.php";
 
         JsonObjectRequest solicitud =  new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Iniciando consumo");
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        String url = "http://172.20.10.2:80/APIenPHP/Insert.php";
+        String url = "http://192.168.20.31/APIenPHP/Insert.php";
 
         StringRequest solicitud =  new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
