@@ -1,0 +1,15 @@
+Manifest:
+<uses-permission android:name="android.permission.INTERNET" />
+
+Build Graddle:
+implementation 'com.android.volley:volley:1.2.1'
+
+
+PHP:
+	header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Allow-Headers: Content-Type");
+
+    $proceso = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    mb_convert_encoding($array, "UTF-8", "iso-8859-1");
