@@ -1,0 +1,2 @@
+Dependencia:
+	implementation 'androidx.recyclerview:recyclerview:+'
