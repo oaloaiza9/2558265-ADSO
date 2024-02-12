@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Inicio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="75dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contactos"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            android:layout_marginBottom="15dp"
+            >
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/campoBusqueda"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:hint="Texto Busqueda"
+                android:layout_weight="4"
+                android:paddingHorizontal="15dp"
+                android:textSize="22sp"
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/icono_search"
+                app:backgroundTint="@color/blueDark"
+                app:tint="@color/white"
+                app:maxImageSize="35dp"
+                app:fabCustomSize="50dp"
+                android:tooltipText="Buscar Contactos"
+                android:layout_weight="0"
+                android:layout_marginLeft="10dp"
+                />
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerContacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/icono_salir"
+        android:tooltipText="Cerrar Sesión"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="15dp"
+        app:backgroundTint="#990303"
+        app:tint="@color/white"
+        app:maxImageSize="35dp"
+        app:fabCustomSize="50dp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/icono_usuario"
+        app:backgroundTint="#00A100"
+        app:tint="@color/white"
+        app:maxImageSize="35dp"
+        app:fabCustomSize="50dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="60dp"
+        android:tooltipText="Nuevo Cuestionario"
+        android:onClick="nuevoCuestionario"
+        />
+
+</FrameLayout>
