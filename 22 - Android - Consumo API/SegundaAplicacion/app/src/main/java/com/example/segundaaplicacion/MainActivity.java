@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     public void consumoImagen(View vista){
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         String url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png";
+        //String url = "https://res.cloudinary.com/dgtgbyo76/image/upload/v1699145134/wxedvvh8kiyw00psvphl.webp";
 
         ImageRequest solicitud = new ImageRequest(
                 url,
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Bitmap bitmap) {
                         // Set the image in the ImageView.
+                        System.out.println("OK Imagen en respuesta Volley");
                         imgInternet.setImageBitmap(bitmap);
                     }
                 },
@@ -120,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Handle the error.
+                        System.out.println("Error Imagen en respuesta Volley");
+                        System.out.println(error.getMessage());
+                        System.out.println(error.toString());
                     }
                 });
 

@@ -18,7 +18,7 @@
                 $respuesta = [
                                 'status' => true,
                                 'mesagge' => "OK##CUESTIONARIO##INSERT",
-                                'id_cuestionario' => $id_cuestionario = $base_de_datos->lastInsertId()
+                                'id_cuestionario' => $base_de_datos->lastInsertId()
                               ];
                 echo json_encode($respuesta);
             }else{
